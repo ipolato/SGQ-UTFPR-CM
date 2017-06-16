@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.servlet;
+package br.edu.utfpr.servlet;
 
 import br.edu.utfpr.beans.Imagem;
-import br.com.utfpr.model.DaoImagem;
+import br.edu.utfpr.model.DaoImagem;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

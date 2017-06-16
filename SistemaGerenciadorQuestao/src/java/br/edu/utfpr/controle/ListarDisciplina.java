@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.controle;
+package br.edu.utfpr.controle;
 
 import br.edu.utfpr.beans.Disciplina;
-import br.com.utfpr.model.DaoDisciplina;
+import br.edu.utfpr.model.DaoDisciplina;
 import java.util.List;
 
 /**

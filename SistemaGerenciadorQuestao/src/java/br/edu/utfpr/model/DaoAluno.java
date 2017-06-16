@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.model;
+package br.edu.utfpr.model;
 
 import br.edu.utfpr.beans.Aluno;
 import java.util.List;

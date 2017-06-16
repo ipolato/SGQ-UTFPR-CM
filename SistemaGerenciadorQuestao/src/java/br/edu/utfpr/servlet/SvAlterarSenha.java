@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.servlet;
+package br.edu.utfpr.servlet;
 
 import br.edu.utfpr.beans.Professor;
-import br.com.utfpr.model.DaoProfessor;
+import br.edu.utfpr.model.DaoProfessor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;

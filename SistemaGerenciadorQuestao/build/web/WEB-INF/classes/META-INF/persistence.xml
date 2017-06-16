@@ -16,9 +16,9 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-      <property name="hibernate.connection.username" value="wil3popo"/>
-      <property name="hibernate.connection.password" value="@mfrfve12"/>
-      <property name="hibernate.connection.url" value="jdbc:mysql://sgq3utfpr.mysql.uhserver.com:3306/sgq3utfpr"/>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.password" value="root"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sgq"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
       <property name="hibernate.connection.LoginCookieValidity" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
       <property name="" value="org.hibernate.dialect.MySQLInnoDBDialect"/>

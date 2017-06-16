@@ -2,139 +2,139 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>SvCadastro</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvCadastro</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvCadastro</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvLogin</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvLogin</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExibirImagemServlet</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.ExibirImagemServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.ExibirImagemServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvCadastroTarefa</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvCadastroTarefa</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvCadastroTarefa</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvNovaSenha</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvNovaSenha</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvNovaSenha</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirQuestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.ExcluirQuestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.ExcluirQuestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AtualizarQuestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.AtualizarQuestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.AtualizarQuestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CorrigirQuestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.CorrigirQuestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.CorrigirQuestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AvaliarQuestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.AvaliarQuestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.AvaliarQuestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvFazerTarefa</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvFazerTarefa</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvFazerTarefa</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvComentarforum</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvComentarforum</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvComentarforum</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvExcluirComentario</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvExcluirComentario</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvExcluirComentario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvComentarforum_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvComentarforum_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvComentarforum_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvExcluirComentario_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvExcluirComentario_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvExcluirComentario_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAbrirEFecharQuestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAbrirEFecharQuestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAbrirEFecharQuestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvSugestao</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvSugestao</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvSugestao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvCurtirComentario_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvCurtirComentario_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvCurtirComentario_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvCurtirComentario</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvCurtirComentario</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvCurtirComentario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvListaDeCurtida</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvListaDeCurtida</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvListaDeCurtida</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvVerPerfil_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvVerPerfil_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvVerPerfil_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarImagem_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarImagem_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarImagem_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAbrirTelaExercicio</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAbrirTelaExercicio</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAbrirTelaExercicio</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvCurtirComentario_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvCurtirComentario_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvCurtirComentario_m</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvExcluirComentario_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvExcluirComentario_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvExcluirComentario_m</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvComentarforum_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvComentarforum_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvComentarforum_m</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvDeslogar</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvDeslogar</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvDeslogar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarSenha_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarSenha_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarSenha_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarEmail_a</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarEmail_a</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarEmail_a</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarEmail</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarEmail</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarEmail</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarImagem</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarImagem</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarImagem</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarImagem_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarImagem_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarImagem_m</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarEmail_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarEmail_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarEmail_m</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarSenha</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarSenha</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarSenha</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SvAlterarSenha_m</servlet-name>
-        <servlet-class>br.com.utfpr.servlet.SvAlterarSenha_m</servlet-class>
+        <servlet-class>br.edu.utfpr.servlet.SvAlterarSenha_m</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SvCadastro</servlet-name>
@@ -142,7 +142,7 @@
     </servlet-mapping>
     <!--    <filter>
         <filter-name>FiltroSeguranca</filter-name>
-        <filter-class>br.com.utfpr.servlet.FiltroSeguranca</filter-class>
+        <filter-class>br.edu.utfpr.servlet.FiltroSeguranca</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>FiltroSeguranca</filter-name>

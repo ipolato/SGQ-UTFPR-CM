@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.servlet;
+package br.edu.utfpr.servlet;
 
-import br.com.utfpr.model.DaoDisciplina;
-import br.com.utfpr.model.DaoQuestao;
+import br.edu.utfpr.model.DaoDisciplina;
+import br.edu.utfpr.model.DaoQuestao;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package br.com.utfpr.model;
+package br.edu.utfpr.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.utfpr.servlet;
+package br.edu.utfpr.servlet;
 
 import br.edu.utfpr.beans.Aluno;
 import br.edu.utfpr.beans.Questao;
 import br.edu.utfpr.beans.Resposta;
-import br.com.utfpr.model.DaoAluno;
-import br.com.utfpr.model.DaoQuestao;
-import br.com.utfpr.model.DaoResposta;
+import br.edu.utfpr.model.DaoAluno;
+import br.edu.utfpr.model.DaoQuestao;
+import br.edu.utfpr.model.DaoResposta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
