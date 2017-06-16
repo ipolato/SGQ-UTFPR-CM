@@ -1,0 +1,334 @@
+﻿-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           5.7.12-log - MySQL Community Server (GPL)
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              9.4.0.5125
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+/* CASO NÃO CONSEGUE GERAR O BANCO TIRE AS FOREIGN KEY */;
+
+-- Copiando estrutura do banco de dados para sgq
+CREATE DATABASE IF NOT EXISTS `sgq` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `sgq`;
+
+-- Copiando estrutura para tabela sgq.comentario
+CREATE TABLE IF NOT EXISTS `comentario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `certa` bit(1) NOT NULL,
+  `conteudo` longtext,
+  `quantidadeDeCurtida` int(11) NOT NULL,
+  `aluno_id` int(11) DEFAULT NULL,
+  `professor_id` int(11) DEFAULT NULL,
+  `monitor_id` int(11) DEFAULT NULL,
+  `questao_id` int(11) DEFAULT NULL,
+  `tipo` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK14DFC401AB5FFF6F` (`questao_id`),
+  KEY `FK14DFC401C243C6CF` (`aluno_id`),
+  KEY `FK14DFC4015C3389F` (`questao_id`),
+  KEY `FK14DFC401ED838BFF` (`aluno_id`),
+  KEY `FK14DFC401745A0C5F` (`monitor_id`),
+  KEY `FK14DFC401B6B052FF` (`professor_id`),
+  CONSTRAINT `FK14DFC4015C3389F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FK14DFC401745A0C5F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK14DFC401AB5FFF6F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FK14DFC401B6B052FF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK14DFC401C243C6CF` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK14DFC401ED838BFF` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK_comentario_pessoa` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK_comentario_pessoa_2` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.curtir
+CREATE TABLE IF NOT EXISTS `curtir` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `aluno_id` int(11) DEFAULT '0',
+  `professor_id` int(11) DEFAULT '0',
+  `monitor_id` int(11) DEFAULT '0',
+  `comentario_id` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK78FB027DED838BFF` (`aluno_id`),
+  KEY `FK78FB027D9E7BA315` (`comentario_id`),
+  KEY `FK78FB027D745A0C5F` (`monitor_id`),
+  KEY `FK78FB027DB6B052FF` (`professor_id`),
+  CONSTRAINT `FK78FB027D745A0C5F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK78FB027D9E7BA315` FOREIGN KEY (`comentario_id`) REFERENCES `comentario` (`id`),
+  CONSTRAINT `FK78FB027DB6B052FF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK78FB027DED838BFF` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK_curtir_pessoa` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK_curtir_pessoa_2` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.disciplina
+CREATE TABLE IF NOT EXISTS `disciplina` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `monitor_id` int(11) DEFAULT NULL,
+  `professor_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK8C4D778C19F6D32F` (`monitor_id`),
+  KEY `FK8C4D778C6836A5CF` (`professor_id`),
+  KEY `FK8C4D778C745A0C5F` (`monitor_id`),
+  KEY `FK8C4D778CB6B052FF` (`professor_id`),
+  CONSTRAINT `FK8C4D778C19F6D32F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8C4D778C6836A5CF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8C4D778C745A0C5F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8C4D778CB6B052FF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.disciplina_pessoa
+CREATE TABLE IF NOT EXISTS `disciplina_pessoa` (
+  `Disciplina_id` int(11) NOT NULL,
+  `alunos_id` int(11) NOT NULL,
+  UNIQUE KEY `alunos_id` (`alunos_id`),
+  KEY `FK1DCC2BDA3714D5B2` (`alunos_id`),
+  KEY `FK1DCC2BDA9C3DFA65` (`Disciplina_id`),
+  KEY `FK1DCC2BDA62549AE2` (`alunos_id`),
+  KEY `FK1DCC2BDA1CF9F335` (`Disciplina_id`),
+  CONSTRAINT `FK1DCC2BDA1CF9F335` FOREIGN KEY (`Disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK1DCC2BDA3714D5B2` FOREIGN KEY (`alunos_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK1DCC2BDA62549AE2` FOREIGN KEY (`alunos_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK1DCC2BDA9C3DFA65` FOREIGN KEY (`Disciplina_id`) REFERENCES `disciplina` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.disciplina_questao
+CREATE TABLE IF NOT EXISTS `disciplina_questao` (
+  `Disciplina_id` int(11) NOT NULL,
+  `questoes_id` int(11) NOT NULL,
+  UNIQUE KEY `questoes_id` (`questoes_id`),
+  KEY `FK87EF46DDCC1A5EE4` (`questoes_id`),
+  KEY `FK87EF46DD9C3DFA65` (`Disciplina_id`),
+  KEY `FK87EF46DD267D9814` (`questoes_id`),
+  KEY `FK87EF46DD1CF9F335` (`Disciplina_id`),
+  CONSTRAINT `FK87EF46DD1CF9F335` FOREIGN KEY (`Disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK87EF46DD267D9814` FOREIGN KEY (`questoes_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FK87EF46DD9C3DFA65` FOREIGN KEY (`Disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK87EF46DDCC1A5EE4` FOREIGN KEY (`questoes_id`) REFERENCES `questao` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.imagem
+CREATE TABLE IF NOT EXISTS `imagem` (
+  `cd_imagem` int(11) NOT NULL AUTO_INCREMENT,
+  `imagem` varchar(255) DEFAULT NULL,
+  `ds_arquivo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cd_imagem`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa
+CREATE TABLE IF NOT EXISTS `pessoa` (
+  `DTYPE` varchar(31) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dtNascimento` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `sexo` bit(1) NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `game` char(1) DEFAULT 'N',
+  `SIAPE` int(11) DEFAULT NULL,
+  `RA` varchar(255) DEFAULT NULL,
+  `pontosDeExperiencia` int(11) DEFAULT NULL,
+  `possuiLevel` int(11) DEFAULT NULL,
+  `tempoPermanecido` date DEFAULT NULL,
+  `imagem` int(11) DEFAULT NULL,
+  `monitor_id` int(11) DEFAULT NULL,
+  `disciplina_id` int(11) DEFAULT NULL,
+  `professor_id` int(11) DEFAULT NULL,
+  `umaEst` int(11) DEFAULT '0',
+  `duaEst` int(11) DEFAULT '0',
+  `treEst` int(11) DEFAULT '0',
+  `medal` int(11) DEFAULT '0',
+  `medCom` int(11) DEFAULT '0',
+  `medLiv` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FK8E48FBC719F6D32F` (`monitor_id`),
+  KEY `FK8E48FBC76836A5CF` (`professor_id`),
+  KEY `FK8E48FBC79C3DFA65` (`disciplina_id`),
+  KEY `FK8E48FBC75D17228F` (`imagem`),
+  KEY `FK8E48FBC7745A0C5F` (`monitor_id`),
+  KEY `FK8E48FBC7B6B052FF` (`professor_id`),
+  KEY `FK8E48FBC71CF9F335` (`disciplina_id`),
+  KEY `FK8E48FBC799D0035F` (`imagem`),
+  CONSTRAINT `FK8E48FBC719F6D32F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8E48FBC71CF9F335` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK8E48FBC75D17228F` FOREIGN KEY (`imagem`) REFERENCES `imagem` (`cd_imagem`),
+  CONSTRAINT `FK8E48FBC76836A5CF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8E48FBC7745A0C5F` FOREIGN KEY (`monitor_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK8E48FBC799D0035F` FOREIGN KEY (`imagem`) REFERENCES `imagem` (`cd_imagem`),
+  CONSTRAINT `FK8E48FBC79C3DFA65` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK8E48FBC7B6B052FF` FOREIGN KEY (`professor_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa_comentario
+CREATE TABLE IF NOT EXISTS `pessoa_comentario` (
+  `Pessoa_id` int(11) NOT NULL,
+  `comentarios_id` int(11) NOT NULL,
+  UNIQUE KEY `comentarios_id` (`comentarios_id`),
+  KEY `FKB2B1CB79BCDDFFD4` (`comentarios_id`),
+  KEY `FKB2B1CB79AEA2B293` (`Pessoa_id`),
+  KEY `FKB2B1CB793D99F8A4` (`comentarios_id`),
+  KEY `FKB2B1CB79D9E277C3` (`Pessoa_id`),
+  CONSTRAINT `FKB2B1CB793D99F8A4` FOREIGN KEY (`comentarios_id`) REFERENCES `comentario` (`id`),
+  CONSTRAINT `FKB2B1CB79AEA2B293` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKB2B1CB79BCDDFFD4` FOREIGN KEY (`comentarios_id`) REFERENCES `comentario` (`id`),
+  CONSTRAINT `FKB2B1CB79D9E277C3` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa_curtir
+CREATE TABLE IF NOT EXISTS `pessoa_curtir` (
+  `Pessoa_id` int(11) NOT NULL,
+  `quantDecurtidas_id` int(11) NOT NULL,
+  UNIQUE KEY `quantDecurtidas_id` (`quantDecurtidas_id`),
+  KEY `FKF22B85F553B9FAD5` (`Pessoa_id`),
+  KEY `FKF22B85F5D9E277C3` (`Pessoa_id`),
+  KEY `FKF22B85F5CF2C5CAD` (`quantDecurtidas_id`),
+  CONSTRAINT `FKF22B85F553B9FAD5` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKF22B85F5CF2C5CAD` FOREIGN KEY (`quantDecurtidas_id`) REFERENCES `curtir` (`id`),
+  CONSTRAINT `FKF22B85F5D9E277C3` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa_pessoa
+CREATE TABLE IF NOT EXISTS `pessoa_pessoa` (
+  `Pessoa_id` int(11) NOT NULL,
+  `alunos_id` int(11) NOT NULL,
+  UNIQUE KEY `alunos_id` (`alunos_id`),
+  KEY `FK7797F3F9B734197` (`Pessoa_id`),
+  KEY `FK7797F3F3714D5B2` (`alunos_id`),
+  KEY `FK7797F3FE9ECEEC7` (`Pessoa_id`),
+  KEY `FK7797F3F62549AE2` (`alunos_id`),
+  CONSTRAINT `FK7797F3F3714D5B2` FOREIGN KEY (`alunos_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK7797F3F62549AE2` FOREIGN KEY (`alunos_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK7797F3F9B734197` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FK7797F3FE9ECEEC7` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa_questao
+CREATE TABLE IF NOT EXISTS `pessoa_questao` (
+  `Pessoa_id` int(11) NOT NULL,
+  `questoes_id` int(11) NOT NULL,
+  UNIQUE KEY `questoes_id` (`questoes_id`),
+  KEY `FKD3EC60189B734197` (`Pessoa_id`),
+  KEY `FKD3EC6018134D41C2` (`Pessoa_id`),
+  KEY `FKD3EC6018CC1A5EE4` (`questoes_id`),
+  KEY `FKD3EC60186DB07AF2` (`Pessoa_id`),
+  KEY `FKD3EC6018E9ECEEC7` (`Pessoa_id`),
+  KEY `FKD3EC6018267D9814` (`questoes_id`),
+  CONSTRAINT `FKD3EC6018134D41C2` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKD3EC6018267D9814` FOREIGN KEY (`questoes_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FKD3EC60186DB07AF2` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKD3EC60189B734197` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKD3EC6018CC1A5EE4` FOREIGN KEY (`questoes_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FKD3EC6018E9ECEEC7` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.pessoa_resposta
+CREATE TABLE IF NOT EXISTS `pessoa_resposta` (
+  `Pessoa_id` int(11) NOT NULL,
+  `respostas_id` int(11) NOT NULL,
+  UNIQUE KEY `respostas_id` (`respostas_id`),
+  KEY `FKDEAF10B925DAED14` (`respostas_id`),
+  KEY `FKDEAF10B9AEA2B293` (`Pessoa_id`),
+  KEY `FKDEAF10B917DED9E4` (`respostas_id`),
+  KEY `FKDEAF10B9D9E277C3` (`Pessoa_id`),
+  CONSTRAINT `FKDEAF10B917DED9E4` FOREIGN KEY (`respostas_id`) REFERENCES `resposta` (`id`),
+  CONSTRAINT `FKDEAF10B925DAED14` FOREIGN KEY (`respostas_id`) REFERENCES `resposta` (`id`),
+  CONSTRAINT `FKDEAF10B9AEA2B293` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKDEAF10B9D9E277C3` FOREIGN KEY (`Pessoa_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.questao
+CREATE TABLE IF NOT EXISTS `questao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `disciplina_id` int(11) DEFAULT NULL,
+  `aberta` bit(1) NOT NULL,
+  `conteudo` longtext,
+  `status` varchar(255) DEFAULT NULL,
+  `titulo` varchar(255) DEFAULT NULL,
+  `data_inicio` date DEFAULT NULL,
+  `data_final` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK270C74909C3DFA65` (`disciplina_id`),
+  KEY `FK270C74901CF9F335` (`disciplina_id`),
+  CONSTRAINT `FK270C74901CF9F335` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id`),
+  CONSTRAINT `FK270C74909C3DFA65` FOREIGN KEY (`disciplina_id`) REFERENCES `disciplina` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.questao_comentario
+CREATE TABLE IF NOT EXISTS `questao_comentario` (
+  `questao_id` int(11) NOT NULL,
+  `comentarios_id` int(11) NOT NULL,
+  UNIQUE KEY `comentarios_id` (`comentarios_id`),
+  KEY `FK620E2B10BCDDFFD4` (`comentarios_id`),
+  KEY `FK620E2B10AB5FFF6F` (`questao_id`),
+  KEY `FK620E2B103D99F8A4` (`comentarios_id`),
+  KEY `FK620E2B105C3389F` (`questao_id`),
+  CONSTRAINT `FK620E2B103D99F8A4` FOREIGN KEY (`comentarios_id`) REFERENCES `comentario` (`id`),
+  CONSTRAINT `FK620E2B105C3389F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FK620E2B10AB5FFF6F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FK620E2B10BCDDFFD4` FOREIGN KEY (`comentarios_id`) REFERENCES `comentario` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.questao_resposta
+CREATE TABLE IF NOT EXISTS `questao_resposta` (
+  `questao_id` int(11) NOT NULL,
+  `respostas_id` int(11) NOT NULL,
+  UNIQUE KEY `respostas_id` (`respostas_id`),
+  KEY `FKABFC6A1017DED9E4` (`respostas_id`),
+  KEY `FKABFC6A105C3389F` (`questao_id`),
+  CONSTRAINT `FKABFC6A1017DED9E4` FOREIGN KEY (`respostas_id`) REFERENCES `resposta` (`id`),
+  CONSTRAINT `FKABFC6A105C3389F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.resposta
+CREATE TABLE IF NOT EXISTS `resposta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `certa` bit(1) NOT NULL,
+  `conteudo` longtext,
+  `quantidadeDeCurtida` int(11) NOT NULL,
+  `aluno_id` int(11) DEFAULT NULL,
+  `questao_id` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKEF918B41AB5FFF6F` (`questao_id`),
+  KEY `FKEF918B41C243C6CF` (`aluno_id`),
+  KEY `FKEF918B415C3389F` (`questao_id`),
+  KEY `FKEF918B41ED838BFF` (`aluno_id`),
+  CONSTRAINT `FKEF918B415C3389F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FKEF918B41AB5FFF6F` FOREIGN KEY (`questao_id`) REFERENCES `questao` (`id`),
+  CONSTRAINT `FKEF918B41C243C6CF` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`),
+  CONSTRAINT `FKEF918B41ED838BFF` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela sgq.sugestao
+CREATE TABLE IF NOT EXISTS `sugestao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `artigo` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
